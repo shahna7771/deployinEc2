@@ -30,7 +30,7 @@ jobs:
                 HOST: ${{ secrets.EC2_HOST }}
                 USER: "ubuntu"
               run: 
-                |
+                 | 
                   echo "$PRIVATE_KEY" > privateKey.pem
                   chmod 600 privateKey.pem
                   scp -i privateKey.pem -r ./* $USER@$HOST:/home/ubuntu/app
