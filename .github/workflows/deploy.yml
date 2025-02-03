@@ -31,7 +31,7 @@ jobs:
                 USER: "ubuntu"
               run: 
                 |
-                  echo "$PRIVATE_KEY" > privateKey.pem
+                  echo "$PRIVATE_KEY" >> privateKey.pem
                   chmod 600 privateKey.pem
                   scp -i -o StrictHostKeyChecking=no privateKey.pem -r ./* $USER@$HOST:/home/ubuntu/app
 
