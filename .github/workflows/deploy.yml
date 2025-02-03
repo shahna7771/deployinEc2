@@ -33,9 +33,9 @@ jobs:
                 |
                   echo "$PRIVATE_KEY" > privateKey.pem
                   chmod 600 privateKey.pem
-                  scp -i privateKey.pem -r ./* $USER@$HOST:/home/ubuntu/app
+                  scp -i -o StrictHostKeyChecking=no privateKey.pem -r ./* $USER@$HOST:/home/ubuntu/app
 
-                  ssh -i privateKey.pem $USER@$HOST << 'EOF'
+                  ssh -i -o StrictHostKeyChecking=no privateKey.pem $USER@$HOST << 'EOF'
                       cd /home/ubuntu/app
                       npm install
                       pm2 stop all
@@ -43,4 +43,4 @@ jobs:
                       EOF
 
         
-                      
+
