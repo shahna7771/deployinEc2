@@ -7,7 +7,7 @@ on:
 
 jobs:
     deploy:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
 
         steps:
             - name: Checkout repository
@@ -24,22 +24,7 @@ jobs:
          #       node server.js
         #        curl http://localhost:3000 
 
-            - name: Deploy to EC2
-              env:
-                PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
-                HOST: ${{ secrets.EC2_HOST }}
-                USER: "ubuntu"
-              run: 
-                 | 
-                  echo "$PRIVATE_KEY" > privateKey.pem
-                  chmod 600 privateKey.pem
-                  scp -i privateKey.pem -r ./* $USER@$HOST:/home/ubuntu/app
-                  ssh -i privateKey.pem $USER@$HOST << 'EOF'
-                  cd /home/ubuntu/app
-                  npm install
-                  pm2 stop all
-                  pm2 start server.js --name my-app 
-                  EOF
+            
 
         
 
