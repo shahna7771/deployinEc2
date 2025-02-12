@@ -4,6 +4,7 @@ on:
     push:
       branches:
         - master
+        - main
 
 jobs:
     deploy:
@@ -22,7 +23,9 @@ jobs:
          #  - name: run tests
           #   run : |
          #       node server.js
-        #        curl http://localhost:3000 
+         #        curl http://localhost:3000 
+
+
 
             
 
