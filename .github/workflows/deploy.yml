@@ -26,7 +26,12 @@ jobs:
          #       curl http://localhost:3000 
 
             - name: "Deploy to aws"
-              run : pm2 start server.js
+              run :
+                |  
+                pm2 delete all || true
+                pm2 start server.js
+                pm2 save
+
 
 
             
