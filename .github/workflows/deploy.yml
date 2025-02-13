@@ -17,8 +17,8 @@ jobs:
             - name: Install nodeJs
               uses: actions/setup-node@v4
 
-            - name : install dependencies
-              run: npm install
+         #   - name : install dependencies
+          #    run: npm install
               
          #  - name: run tests
           #   run : |
