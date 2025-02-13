@@ -17,15 +17,16 @@ jobs:
             - name: Install nodeJs
               uses: actions/setup-node@v4
 
-         #   - name : install dependencies
-          #    run: npm install
+            - name : install dependencies
+              run: npm install
               
          #  - name: run tests
           #   run : |
          #       node server.js
          #       curl http://localhost:3000 
 
-
+            - name: "Deploy to aws"
+              run : pm2 start server.js
 
 
             
